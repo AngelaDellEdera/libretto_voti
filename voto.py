@@ -161,7 +161,7 @@ class Libretto:
             print(v)
         print(f"La media vale {self.media():.2f}")
 
-    def stampaGUI(self):
+    def stampaGUI(self): #sostituisco i print con una lista
         outList = []
         outList.append(f"Hai {len(self._voti)} voti")
         for v in self._voti:

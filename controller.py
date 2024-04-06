@@ -2,7 +2,9 @@ from view import View
 from voto import Libretto, Voto
 import flet as ft
 import datetime
-
+"""
+metodi che vanno a modificare interfaccia grafica
+"""
 class Controller(object):
     def __init__(self, view: View):
         self._view = view

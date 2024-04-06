@@ -1,7 +1,9 @@
 import datetime
 
 import flet as ft
-
+"""
+oggetti grafici
+"""
 class View(object):
     def __init__(self, page):
         self._page = page
@@ -22,23 +24,24 @@ class View(object):
         )
 
 
-        # Row 1
+        # Row 1 la prendo da voto
         self._txtIn = ft.TextField(label="Nome",width=300)
         self._txtCFU = ft.TextField(label="CFU",width=100)
         self._ddVoto = ft.Dropdown(label="Voto",width=100)
         self._fillDdVoto()
-
+        #prima aggiungo datepicker poi ci associo un bottone
         self._datePicker = ft.DatePicker(
             first_date=datetime.datetime(2022,11,1),
             last_date=datetime.datetime(2025,10,31)
         )
 
         self._page.overlay.append(self._datePicker)
+        #bottone
         self._btnCalendar = ft.ElevatedButton("Pick date",
                                               icon=ft.icons.CALENDAR_MONTH,
                                               on_click=lambda _: self._datePicker.pick_date())
 
-
+#aggiungo tutti gli oggetti alla riga
         row1 = ft.Row([self._txtIn, self._txtCFU, self._ddVoto, self._btnCalendar],
                       alignment=ft.MainAxisAlignment.CENTER)
 
@@ -60,7 +63,7 @@ class View(object):
         self._page.update()
     def _fillDdVoto(self):
         for i in range(18,31):
-            self._ddVoto.options.append(ft.dropdown.Option(str(i)))
+            self._ddVoto.options.append(ft.dropdown.Option(str(i)))  #mettere per forza options per aggiungere nel dropdown
         self._ddVoto.options.append(ft.dropdown.Option("30L"))
 
     def theme_changed(self, e):
